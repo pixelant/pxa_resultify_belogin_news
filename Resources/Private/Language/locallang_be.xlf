@@ -21,6 +21,9 @@
 			<trans-unit id="scheduler.task.description">
 				<source>Import news as TYPO3 system news</source>
 			</trans-unit>
+			<trans-unit id="scheduler.language">
+			    <source>Language</source>
+			</trans-unit>
 			<!--Scheduler task:END-->
 		</body>
 	</file>

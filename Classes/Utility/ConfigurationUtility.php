@@ -37,20 +37,22 @@ class ConfigurationUtility
     protected static $settings;
 
     /**
+     * Get extension settings
      */
-    public static function getSettings($currentPageId = null)
+    public static function getSettings()
     {
         if (self::$settings === null) {
             $configurationManager = GeneralUtility::makeInstance(ObjectManager::class)
                 ->get(ConfigurationManagerInterface::class);
 
-            $fullTyposcript = $configurationManager->getConfiguration(
-                ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS
+            $settings = $configurationManager->getConfiguration(
+                ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
+                'pxaresultifybeloginnews'
             );
-            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($fullTyposcript, 'Debug', 16);
+
+            self::$settings = $settings ?: [];
         }
 
         return self::$settings;
     }
-
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en"
+		  datatype="plaintext"
+		  original="messages"
+		  date="2018-08-22T10:02:00Z"
+		  product-name="pxa_resultify_belogin_news">
+		<header/>
+		<body>
+			<trans-unit id="sys_news.tab.resultify">
+			    <source>Resultify news</source>
+			</trans-unit>
+			<trans-unit id="sys_news.language">
+				<source>Language UID</source>
+			</trans-unit>
+			<trans-unit id="sys_news.external_uid">
+			    <source>External UID</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

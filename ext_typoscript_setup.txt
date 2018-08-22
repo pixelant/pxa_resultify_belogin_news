@@ -1,5 +1,10 @@
 module.tx_pxaresultifybeloginnews {
     settings {
-        languages = 0,3
+        import {
+            languages = 0,3
+            fetchUrl = http://localhost:8888/typo3-feed.rss
+        }
     }
 }
+
+plugin.tx_pxaresultifybeloginnews < .module.tx_pxaresultifybeloginnews
