@@ -1,0 +1,5 @@
+module.tx_pxaresultifybeloginnews {
+    settings {
+        languages = 0,3
+    }
+}

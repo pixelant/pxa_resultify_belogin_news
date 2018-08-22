@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en"
+		  datatype="plaintext"
+		  original="messages"
+		  date="2018-08-22T10:02:00Z"
+		  product-name="pxa_resultify_belogin_news">
+		<header/>
+		<body>
+			<trans-unit id="language.0">
+				<source>Swedish</source>
+			</trans-unit>
+			<trans-unit id="language.3">
+			    <source>Norwegian</source>
+			</trans-unit>
+
+			<!--Scheduler task:START-->
+			<trans-unit id="scheduler.task.name">
+			    <source>Import Resultify news</source>
+			</trans-unit>
+			<trans-unit id="scheduler.task.description">
+				<source>Import news as TYPO3 system news</source>
+			</trans-unit>
+			<!--Scheduler task:END-->
+		</body>
+	</file>
+</xliff>

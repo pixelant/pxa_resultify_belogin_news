@@ -1,0 +1,19 @@
+{
+  "name": "pixelant/pxa-resultify-belogin-news",
+  "description": "Import resultify news into system TYPO3 news.",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0+",
+  "autoload": {
+    "psr-4": {
+      "Pixelant\\PxaResultifyBeloginNews\\": "Classes/"
+    }
+  },
+  "replace": {
+    "pxa_resultify_belogin_news": "self.version",
+    "typo3-ter/pxa-resultify-belogin-news": "self.version"
+  },
+  "require": {
+    "php": ">=5.6",
+    "typo3/cms-backend": "^7.6 || ^8.7"
+  }
+}
