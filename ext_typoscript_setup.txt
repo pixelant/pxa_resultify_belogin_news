@@ -1,10 +1,33 @@
-module.tx_pxaresultifybeloginnews {
-    settings {
-        import {
-            languages = 0,3
-            fetchUrl = http://localhost:8888/typo3-feed.rss
+# ==============================================
+# Extbase mapping configuration
+# ==============================================
+config.tx_extbase.persistence.classes {
+    Pixelant\PxaResultifyBeloginNews\Domain\Model\SysNews {
+        mapping {
+            tableName = sys_news
+            columns {
+                tx_pxaresultifybeloginnews_pub_date.mapOnProperty = pubDate
+                tx_pxaresultifybeloginnews_link.mapOnProperty = link
+                tx_pxaresultifybeloginnews_language.mapOnProperty = language
+                tx_pxaresultifybeloginnews_external_uid.mapOnProperty = externalUid
+            }
         }
     }
 }
 
-plugin.tx_pxaresultifybeloginnews < .module.tx_pxaresultifybeloginnews
+
+# @TODO where better to store this settings?
+module.tx_pxaresultifybeloginnews {
+    settings {
+        languages  {
+            0 {
+                linkLabel = Visa mer
+                dateFormat = %Y-%m-%d
+            }
+            3 {
+                linkLabel = Vis mer
+                dateFormat = %d.%a.%Y
+            }
+        }
+    }
+}

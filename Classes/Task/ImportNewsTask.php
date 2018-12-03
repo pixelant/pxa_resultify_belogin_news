@@ -1,8 +1,11 @@
 <?php
+declare(strict_types=1);
+
 namespace Pixelant\PxaResultifyBeloginNews\Task;
 
 use Pixelant\PxaResultifyBeloginNews\Service\Task\ImportTaskService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
 
 /**
@@ -18,7 +21,7 @@ class ImportNewsTask extends AbstractTask
      */
     public function execute()
     {
-        GeneralUtility::makeInstance(ImportTaskService::class)->import();
+        GeneralUtility::makeInstance(ObjectManager::class)->get(ImportTaskService::class)->import();
 
         return true;
     }

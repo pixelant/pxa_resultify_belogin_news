@@ -16,6 +16,12 @@
 			<trans-unit id="sys_news.external_uid">
 			    <source>External UID</source>
 			</trans-unit>
+			<trans-unit id="sys_news.pub_date">
+			    <source>Publish date</source>
+			</trans-unit>
+			<trans-unit id="sys_news.link">
+				<source>Link</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

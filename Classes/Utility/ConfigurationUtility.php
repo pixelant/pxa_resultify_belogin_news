@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Pixelant\PxaResultifyBeloginNews\Utility;
 
 /*
@@ -15,13 +15,7 @@ namespace Pixelant\PxaResultifyBeloginNews\Utility;
  * The TYPO3 project - inspiring people to share!
  */
 
-use Pixelant\PxaProductManager\Configuration\ConfigurationManager;
-use TYPO3\CMS\Core\Utility\ArrayUtility;
-use TYPO3\CMS\Core\Utility\Exception\MissingArrayPathException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\SignalSlot\Dispatcher;
 use \TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 
 /**
@@ -30,29 +24,21 @@ use \TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 class ConfigurationUtility
 {
     /**
-     * Settings
-     *
-     * @var array
-     */
-    protected static $settings;
-
-    /**
      * Get extension settings
      */
-    public static function getSettings()
+    public static function getExtensionConfiguration(): array
     {
-        if (self::$settings === null) {
-            $configurationManager = GeneralUtility::makeInstance(ObjectManager::class)
-                ->get(ConfigurationManagerInterface::class);
-
-            $settings = $configurationManager->getConfiguration(
-                ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
-                'pxaresultifybeloginnews'
-            );
-
-            self::$settings = $settings ?: [];
+        if (version_compare(TYPO3_version, '9.0', '<')) {
+            $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['pxa_resultify_belogin_news'] ?: '');
+        } else {
+            $settings = GeneralUtility::makeInstance(ExtensionConfiguration::class)
+                ->get('pxa_resultify_belogin_news');
         }
 
-        return self::$settings;
+        if (!is_array($settings)) {
+            $settings = [];
+        }
+
+        return $settings;
     }
 }
