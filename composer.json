@@ -13,7 +13,7 @@
     "typo3-ter/pxa-resultify-belogin-news": "self.version"
   },
   "require": {
-    "php": ">=5.6",
+    "php": ">=7.0",
     "typo3/cms-backend": "^8.7 || ^9.0"
   }
 }
