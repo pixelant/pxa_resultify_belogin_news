@@ -2,7 +2,7 @@ feed {
     # cat=basic/enable; type=string; label=LLL:EXT:pxa_resultify_belogin_news/Resources/Private/Language/locallang_be.xlf:em.languages
     languages = 0,3
     # cat=basic/enable; type=string; label=LLL:EXT:pxa_resultify_belogin_news/Resources/Private/Language/locallang_be.xlf:em.fetchUrl
-    fetchUrl = http://localhost:8888/typo3-feed.rss
+    fetchUrl = https://www.resultify.se/typo3-feed.rss
     # cat=basic/enable; type=user[Pixelant\PxaResultifyBeloginNews\UserFunction\ExtensionManager\LanguageOptions->languageSelector]; label=LLL:EXT:pxa_resultify_belogin_news/Resources/Private/Language/locallang_be.xlf:em.language
     language =
 }
