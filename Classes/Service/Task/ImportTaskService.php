@@ -93,10 +93,10 @@ class ImportTaskService
                 }
 
                 // If pub date was not set yet and differs - update
-                if ($sysNews->getPubDate() === null
-                    || $sysNews->getPubDate()->getTimestamp() !== $pubDate->getTimestamp()
+                if ($sysNews->getCrdate() === null
+                    || $sysNews->getCrdate()->getTimestamp() !== $pubDate->getTimestamp()
                 ) {
-                    $sysNews->setPubDate($pubDate);
+                    $sysNews->setCrdate($pubDate);
                 }
 
                 // Set simple fields

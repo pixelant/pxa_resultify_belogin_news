@@ -6,7 +6,6 @@ config.tx_extbase.persistence.classes {
         mapping {
             tableName = sys_news
             columns {
-                tx_pxaresultifybeloginnews_pub_date.mapOnProperty = pubDate
                 tx_pxaresultifybeloginnews_link.mapOnProperty = link
                 tx_pxaresultifybeloginnews_language.mapOnProperty = language
                 tx_pxaresultifybeloginnews_external_uid.mapOnProperty = externalUid

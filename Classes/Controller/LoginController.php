@@ -60,7 +60,7 @@ class LoginController extends \TYPO3\CMS\Backend\Controller\LoginController
         $expr = $queryBuilder->expr();
         $systemNews = [];
         $systemNewsRecords = $queryBuilder
-            ->select('title', 'content', 'crdate', 'tx_pxaresultifybeloginnews_pub_date', 'tx_pxaresultifybeloginnews_link')
+            ->select('title', 'content', 'crdate', 'tx_pxaresultifybeloginnews_link')
             ->from($systemNewsTable)
             ->where(
                 $expr->orX(
@@ -102,7 +102,7 @@ class LoginController extends \TYPO3\CMS\Backend\Controller\LoginController
         }
 
         foreach ($systemNewsRecords as $systemNewsRecord) {
-            $date = intval($systemNewsRecord['tx_pxaresultifybeloginnews_pub_date'] ?: $systemNewsRecord['crdate']);
+            $date = intval($systemNewsRecord['crdate']);
             $systemNews[] = [
                 'date' => strpos($format, '%') !== false ? strftime($format, $date) : date($format, $date),
                 'header' => $systemNewsRecord['title'],
