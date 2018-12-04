@@ -130,17 +130,18 @@ class ImportTaskService
         if (is_string($response) && !empty($response)) {
             $parseXml = simplexml_load_string($response);
 
-            if ($parseXml !== false && is_object($parseXml->channel->item)) {
-                $itemsArray = json_decode(json_encode($parseXml), true)['channel']['item'];
+            if ($parseXml !== false) {
+                $items = [];
 
-                // If only one item wrap it into array
-                if ($parseXml->channel->item->count() === 1) {
-                    return [
-                        $itemsArray
-                    ];
+                foreach ($parseXml->channel->item as $xmlItem) {
+                    $item = [];
+                    foreach ($xmlItem as $key => $value) {
+                        $item[(string)$key] = (string)$value;
+                    }
+                    $items[] = $item;
                 }
 
-                return $itemsArray;
+                return $items;
             }
         }
 
