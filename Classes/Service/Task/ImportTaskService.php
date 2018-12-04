@@ -73,12 +73,9 @@ class ImportTaskService
     public function import()
     {
         foreach ($this->languages as $language) {
-            $feedData = $this->getFeedArray(
+            $items = $this->getFeedItemsArray(
                 $this->getFeedUrlForLanguage($language)
             );
-            $items = isset($feedData['channel']['item']) && is_array($feedData['channel']['item'])
-                ? $feedData['channel']['item']
-                : [];
 
             foreach ($items as $item) {
                 $pubDate = new \DateTime($item['pubDate']);
@@ -127,14 +124,23 @@ class ImportTaskService
      * @param $url
      * @return array
      */
-    protected function getFeedArray(string $url): array
+    protected function getFeedItemsArray(string $url): array
     {
         $response = GeneralUtility::getUrl($url);
         if (is_string($response) && !empty($response)) {
             $parseXml = simplexml_load_string($response);
 
-            if ($parseXml !== false) {
-                return json_decode(json_encode($parseXml), true);
+            if ($parseXml !== false && is_object($parseXml->channel->item)) {
+                $itemsArray = json_decode(json_encode($parseXml), true)['channel']['item'];
+
+                // If only one item wrap it into array
+                if ($parseXml->channel->item->count() === 1) {
+                    return [
+                        $itemsArray
+                    ];
+                }
+
+                return $itemsArray;
             }
         }
 
