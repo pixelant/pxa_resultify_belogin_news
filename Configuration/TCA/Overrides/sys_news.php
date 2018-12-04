@@ -5,17 +5,6 @@ call_user_func(function () {
     $ll = 'LLL:EXT:pxa_resultify_belogin_news/Resources/Private/Language/locallang_db.xlf:';
 
     $columns = [
-        'tx_pxaresultifybeloginnews_pub_date' => [
-            'exclude' => true,
-            'label' => $ll . 'sys_news.pub_date',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'size' => 16,
-                'eval' => 'datetime,int',
-                'default' => 0
-            ]
-        ],
         'tx_pxaresultifybeloginnews_link' => [
             'exclude' => true,
             'label' => $ll . 'sys_news.link',
@@ -43,6 +32,14 @@ call_user_func(function () {
             ]
         ]
     ];
+    $systemColumns = [
+        'crdate' => [
+            'config' => [
+                'type' => 'passthrough'
+            ]
+        ]
+    ];
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_news', $systemColumns);
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_news', $columns);
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(

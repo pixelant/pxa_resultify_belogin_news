@@ -23,7 +23,7 @@ class SysNews extends AbstractEntity
     /**
      * @var \DateTime
      */
-    protected $pubDate = null;
+    protected $crdate = null;
 
     /**
      * @var string
@@ -75,17 +75,17 @@ class SysNews extends AbstractEntity
     /**
      * @return \DateTime
      */
-    public function getPubDate()
+    public function getCrdate()
     {
-        return $this->pubDate;
+        return $this->crdate;
     }
 
     /**
-     * @param \DateTime $pubDate
+     * @param \DateTime $crdate
      */
-    public function setPubDate(\DateTime $pubDate)
+    public function setCrdate(\DateTime $crdate)
     {
-        $this->pubDate = $pubDate;
+        $this->crdate = $crdate;
     }
 
     /**
