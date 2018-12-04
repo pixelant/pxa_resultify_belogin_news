@@ -30,6 +30,9 @@ class ConfigurationUtility
     {
         if (version_compare(TYPO3_version, '9.0', '<')) {
             $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['pxa_resultify_belogin_news'] ?: '');
+            if (is_array($settings)) {
+                $settings = GeneralUtility::removeDotsFromTS($settings);
+            }
         } else {
             $settings = GeneralUtility::makeInstance(ExtensionConfiguration::class)
                 ->get('pxa_resultify_belogin_news');
